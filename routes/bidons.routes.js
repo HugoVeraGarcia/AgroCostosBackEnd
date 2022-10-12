@@ -18,10 +18,10 @@ const {
 //router declaration
 const router = express.Router();
 
+router.get('/', getAllBidonsByMonth);
+
 // Apply protectToken middleware
 router.use(protectToken);
-
-router.get('/', getAllBidonsByMonth);
 
 router.post('/', createBidonValidations, checkValidations, createBidon);
 

@@ -15,7 +15,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 4001
+EXPOSE 4000
 
 # run when our server starts
 CMD [ "node", "server.js" ]
