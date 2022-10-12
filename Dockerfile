@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:16
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -15,7 +15,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 4000
+EXPOSE 4001
 
 # run when our server starts
 CMD [ "node", "server.js" ]
