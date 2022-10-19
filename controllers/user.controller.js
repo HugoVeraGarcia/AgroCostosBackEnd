@@ -118,7 +118,7 @@ const login = catchAsync(async (req, res, next) => {
 
   user.password = undefined;
 
-  res.status(200).json({ token, user });
+  res.status(200).json({ user, token });
 });
 
 const checkToken = catchAsync(async (req, res, next) => {

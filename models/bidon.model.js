@@ -33,10 +33,14 @@ const Bidon = db.define('bidon', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  userId: {
-    type: DataTypes.INTEGER,
+  year_month: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
+  // userId: {
+  //   type: DataTypes.INTEGER,
+  //   allowNull: false,
+  // },
 });
 
 module.exports = { Bidon };

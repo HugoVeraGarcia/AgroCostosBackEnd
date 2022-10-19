@@ -6,7 +6,9 @@ const { AppError } = require('../utils/appError');
 const { catchAsync } = require('../utils/catchAsync');
 
 const getAllBidonsByMonth = catchAsync(async (req, res, next) => {
+  //const { id } = req.params;
   const { year, month } = req.body;
+  console.log('desde api:: ', year, month);
 
   const bidon = await Bidon.findAll({ where: { year, month } });
   res.status(200).json({
@@ -15,7 +17,8 @@ const getAllBidonsByMonth = catchAsync(async (req, res, next) => {
 });
 
 const createBidon = catchAsync(async (req, res, next) => {
-  const { ceco_type, ceco, ceco_desc, quantity, year, month } = req.body;
+  const { ceco_type, ceco, ceco_desc, quantity, year, month, year_month } =
+    req.body;
   const { sessionUser } = req;
   const bidon = await Bidon.create({
     ceco_type,
@@ -24,7 +27,8 @@ const createBidon = catchAsync(async (req, res, next) => {
     quantity,
     year,
     month,
-    userId: sessionUser.id,
+    year_month,
+    //userId: sessionUser.id,
   });
   res.status(201).json({ status: 'success', bidon });
 });
